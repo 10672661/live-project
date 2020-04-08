@@ -33,16 +33,14 @@ public class Show {
 	public void setleave(String leave_time){
 		this.leave_time= leave_time ;	
 	}
-	}
-//网页显示
+<%
+	System.out.println("学号"+"姓名"+"进入时间"+"离开时间");
+%>	
+	while(rs.next()){
 
-System.out.println("学号"+"姓名"+"进入时间"+"离开时间");
+	Object rs;
+	System.out.print(rs.getString(1)+"\t"+rs.getString(2)+"\t"+rs.getString(3)+"\t"+rs.getString(4));
 
-
-while(rs.next()){
-
-	out.print(rs.getString(1)+"\t"+rs.getString(2)+"\t"+rs.getString(3)+"\t"+rs.getString(4));
-
-	out.print("\n");//此处假设表中有四列数据
-
+	System.out.print("\n");//此处假设表中有四列数据
+}
 }

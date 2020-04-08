@@ -11,19 +11,19 @@
         #form {
             /* padding-top: 2%; */
             background:linear-gradient(to right,#A4F4DC,#B9EBF3);
-            height:610px;
+            height:960px;
             width: 35%;
             float:left;
             text-align: center;
         }
         .text{
+            padding-left: 125px;
             text-align: right;
-            width: 450px;
-            height: 100px;
-            float: right;
+            width: 66%;
+            height: 50%;
         }
         .sort{
-            width: 230px;
+            width: 200px;
             height: 25px;
             font-family: 黑体;
             text-indent: 8px;
@@ -36,7 +36,7 @@
             background:linear-gradient(to right,#B9EBF3,lightskyblue);
             /* padding-top: 2%; */
             /* border:1px solid; */
-            height:610px;
+            height:960px;
             width:64%;
             float:right;
         }
@@ -44,7 +44,6 @@
             text-align: center;
             padding-top: 1%;
             padding-left: 5%;
-            width: 20%;
         }
         .a{
             border: 1px dodgerblue;
@@ -53,7 +52,9 @@
             height: 25px;
             width: 50px;
         }
-
+        .btn{
+            padding-top: 20px;
+        }
         .pic{
             padding-top: 20px;
             width: 300px;
@@ -93,7 +94,7 @@
             <h2>进出校园登记</h2>
             <form action="LoginServlet" name="loginform" method="post">
                 <div class="text">
-                <table>
+                    <table>
                         <tr>
                             <td>真实姓名:</td>
                             <td><input name="id" type="text" required pattern="^[\u4e00-\u9fa5]{0,}$" placeholder="必须填写，只能输入汉字" class="sort"> </td>
@@ -102,16 +103,16 @@
                             <td>学号:</td>
                             <td><input name="num" type="text" size="20" required pattern="^([0-9]*$" maxlength="9" placeholder="必须填写，九位学号" class="sort"> </td>
                         </tr>
-                        <tr>
-                            <div class="btn">
-                            <td><input type="button" value="入校" onclick="login()" class="a">
-                                <input type="button" value="离校" onclick="register()" class="a">
-                                <input type="reset" value="重置" class="a">
-                            </td>
-                            </div>
-                        </tr>
-                </table>
+                    </table>
                 </div>
+                <div class="btn">
+                    <td><input type="button" value="入校" onclick="login()" class="a">
+                        <input type="button" value="离校" onclick="register()" class="a">
+                        <input type="reset" value="重置" class="a">
+                    </td>
+                </div>
+
+                    </table>
             </form>
             <img src="https://images.cnblogs.com/cnblogs_com/1148059038tean/1664445/o_200308113025friends.jpg" alt="" class="pic">
         </div>

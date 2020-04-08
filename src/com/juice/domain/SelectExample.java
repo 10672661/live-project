@@ -17,27 +17,27 @@ public class SelectExample {
 	public static Connection link(){
 		Connection con = null;
         String driver = "com.mysql.jdbc.Driver";
-        //URLÖ¸ÏòÒª·ÃÎÊµÄÊı¾İ¿â
+        //URLæŒ‡å‘è¦è®¿é—®çš„æ•°æ®åº“
         String url = "jdbc:mysql://localhost:3306/test";
-        //MySQLÅäÖÃÊ±µÄÓÃ»§Ãû
+        //MySQLé…ç½®æ—¶çš„ç”¨æˆ·å
         String user = "root";
-        //MySQLÅäÖÃÊ±µÄÃÜÂë
+        //MySQLé…ç½®æ—¶çš„å¯†ç 
         String password = "123123";
-        //±éÀú²éÑ¯½á¹û¼¯
+        //éå†æŸ¥è¯¢ç»“æœé›†
         try {
 	        Class.forName(driver);            
-	        //1.getConnection()·½·¨£¬Á¬½ÓMySQLÊı¾İ¿â£¡£¡
+	        //1.getConnection()æ–¹æ³•ï¼Œè¿æ¥MySQLæ•°æ®åº“ï¼ï¼
 	        con = DriverManager.getConnection(url,user,password);
 	        if(!con.isClosed()) {
 	            System.out.println("Succeeded connecting to the Database!");
 	        }
-	        //2.´´½¨statementÀà¶ÔÏó£¬ÓÃÀ´Ö´ĞĞSQLÓï¾ä£¡£¡
+	        //2.åˆ›å»ºstatementç±»å¯¹è±¡ï¼Œç”¨æ¥æ‰§è¡ŒSQLè¯­å¥ï¼ï¼
         }catch(ClassNotFoundException e) {   
-            //Êı¾İ¿âÇı¶¯ÀàÒì³£´¦Àí
-            System.out.println("ÕÒ²»µ½Driver!");   
+            //æ•°æ®åº“é©±åŠ¨ç±»å¼‚å¸¸å¤„ç†
+            System.out.println("æ‰¾ä¸åˆ°Driver!");   
             e.printStackTrace();   
             } catch(SQLException e) {
-            //Êı¾İ¿âÁ¬½ÓÊ§°ÜÒì³£´¦Àí
+            //æ•°æ®åº“è¿æ¥å¤±è´¥å¼‚å¸¸å¤„ç†
             e.printStackTrace();  
             }catch (Exception e) {
             // TODO: handle exception
@@ -46,18 +46,18 @@ public class SelectExample {
         return con;
 	}
 	public static void select(Connection c,String info) {
-        //ÒªÖ´ĞĞµÄSQLÓï¾ä
+        //è¦æ‰§è¡Œçš„SQLè¯­å¥
 		Connection con = c;
 		try {
 			Statement statement = con.createStatement();
 	        String sql = "select * from student where id = "+"'"+info+"'";
 	        System.out.println(sql);
-	        //3.ResultSetÀà£¬ÓÃÀ´´æ·Å»ñÈ¡µÄ½á¹û¼¯£¡£¡
+	        //3.ResultSetç±»ï¼Œç”¨æ¥å­˜æ”¾è·å–çš„ç»“æœé›†ï¼ï¼
 	        ResultSet rs = statement.executeQuery(sql);
 	        System.out.println("--------------------------------------");
-	        System.out.println("Ö´ĞĞ½á¹ûÈçÏÂËùÊ¾:");  
+	        System.out.println("æ‰§è¡Œç»“æœå¦‚ä¸‹æ‰€ç¤º:");  
 	        System.out.println("------------------------");  
-	        System.out.println("Ñ§ºÅ" + "\t" + "ĞÕÃû" + "\t" + "½øÈëÊ±¼ä" + "\t" + "Àë¿ªÊ±¼ä");  
+	        System.out.println("å­¦å·" + "\t" + "å§“å" + "\t" + "è¿›å…¥æ—¶é—´" + "\t" + "ç¦»å¼€æ—¶é—´");  
 	        System.out.println("--------------------------------------");  
 	        String name= null;
 	        String id = null;
@@ -73,7 +73,7 @@ public class SelectExample {
 	        rs.close();
 	        con.close();
 		}catch(SQLException e) {
-            //Êı¾İ¿âÁ¬½ÓÊ§°ÜÒì³£´¦Àí
+            //æ•°æ®åº“è¿æ¥å¤±è´¥å¼‚å¸¸å¤„ç†
             e.printStackTrace();  
             }catch (Exception e) {
             // TODO: handle exception

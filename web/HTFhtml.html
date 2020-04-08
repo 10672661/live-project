@@ -11,15 +11,23 @@
         #form {
             /* padding-top: 2%; */
             background:linear-gradient(to right,#A4F4DC,#B9EBF3);
-            height:960px;
+            height:610px;
             width: 35%;
             float:left;
             text-align: center;
         }
         .text{
             text-align: right;
-            width: 66%;
-            height: 50%;
+            width: 450px;
+            height: 100px;
+            float: right;
+        }
+        .sort{
+            width: 230px;
+            height: 25px;
+            font-family: 黑体;
+            text-indent: 8px;
+            font-size: 15px;
         }
         h2{
             margin-bottom: 20px;
@@ -28,7 +36,7 @@
             background:linear-gradient(to right,#B9EBF3,lightskyblue);
             /* padding-top: 2%; */
             /* border:1px solid; */
-            height:960px;
+            height:610px;
             width:64%;
             float:right;
         }
@@ -36,6 +44,7 @@
             text-align: center;
             padding-top: 1%;
             padding-left: 5%;
+            width: 20%;
         }
         .a{
             border: 1px dodgerblue;
@@ -44,13 +53,7 @@
             height: 25px;
             width: 50px;
         }
-        .sort{
-            width: 45%;
-            height: 25px;
-            font-family: 黑体;
-            text-indent: 8px;
-            font-size: 15px;
-        }
+
         .pic{
             padding-top: 20px;
             width: 300px;
@@ -58,32 +61,63 @@
             opacity: 0.6;
         }
     </style>
+    <script type="text/javascript">
+        function login(){
+            if(document.loginform.num.value==""){
+                window.alert("学号不能为空！");
+                return ;
+                if(document.loginform.id.value==""){
+                    window.alert("姓名不能为空！");
+                    return ;
+                }
+            }
+            loginform.submit();
+        }
+        function register(){
+            if(document.loginform.num.value==""){
+                window.alert("学号不能为空！");
+                return ;
+                if(document.loginform.id.value==""){
+                    window.alert("姓名不能为空！");
+                    return ;
+                }
+            }
+            loginform.submit();
+        }
+    </script>
 </head>
 <body>
 <div id="container">
     <div id="bg">
         <div id="form">
-            <form>
-                <h2>进出校园登记</h2>
-                <p>
+            <h2>进出校园登记</h2>
+            <form action="LoginServlet" name="loginform" method="post">
                 <div class="text">
-                    <span>真实姓名：</span>
-                    <input type="text" required pattern="^[\u4e00-\u9fa5]{0,}$" placeholder="必须填写，只能输入汉字" class="sort"><br><br>
-                    <span>学号：</span>
-                    <input type="text" required pattern="^([0-9]*$" maxlength="9" placeholder="必须填写，九位学号" class="sort"  ><br><br>
+                <table>
+                        <tr>
+                            <td>真实姓名:</td>
+                            <td><input name="id" type="text" required pattern="^[\u4e00-\u9fa5]{0,}$" placeholder="必须填写，只能输入汉字" class="sort"> </td>
+                        </tr>
+                        <tr>
+                            <td>学号:</td>
+                            <td><input name="num" type="text" size="20" required pattern="^([0-9]*$" maxlength="9" placeholder="必须填写，九位学号" class="sort"> </td>
+                        </tr>
+                        <tr>
+                            <div class="btn">
+                            <td><input type="button" value="入校" onclick="login()" class="a">
+                                <input type="button" value="离校" onclick="register()" class="a">
+                                <input type="reset" value="重置" class="a">
+                            </td>
+                            </div>
+                        </tr>
+                </table>
                 </div>
-                </p>
-                <div class="btn">
-                    <input class="a" type="submit" value="提交" >
-                    <input class="a" type="submit" value="重置">
-                    <input class="a" type="submit" value="离校">
-                </div>
-                <img src="https://images.cnblogs.com/cnblogs_com/1148059038tean/1664445/o_200308113025friends.jpg" alt="" class="pic">
             </form>
+            <img src="https://images.cnblogs.com/cnblogs_com/1148059038tean/1664445/o_200308113025friends.jpg" alt="" class="pic">
         </div>
         <div id="table">
             <div id="table1">
-                <table border="1" align="center"width="100%" >
+                <table border="1" align="center" width="750px">
                     <tr >
                         <th>姓名</th><th>学号</th><th>进入时间</th><th>离校时间</th>
                     </tr>

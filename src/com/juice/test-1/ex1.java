@@ -50,7 +50,7 @@ public class ex1 {
 		            e.printStackTrace();
 		             System.out.println("数据库连接失败");
 		        }
-		         add(id,name)
+		         add(id,name);
 	}
 }
 public void class add(id,name) {

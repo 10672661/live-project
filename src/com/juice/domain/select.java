@@ -11,8 +11,8 @@ public class select {
 		Scanner sc = new Scanner(System.in);
 		String info = sc.next();
 		Connection c = link();
-		select(c,info);
-		
+		selectinfo(c,info);
+		sc.close();
 	}
 	public static Connection link(){
 		Connection con = null;
@@ -45,7 +45,7 @@ public class select {
         }
         return con;
 	}
-	public static void select(Connection c,String info) {
+	public static void selectinfo(Connection c,String info) {
         //要执行的SQL语句
 		Connection con = c;
 		try {

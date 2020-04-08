@@ -18,12 +18,13 @@ public class StudentDao {
         return allStudents;
     }
 
-    // 2.添加商品到数据
+    // 添加
     public void addStudent(Student student) throws SQLException {
         String sql = "insert into student (name,id,entry_time,leave_time) value (?,?,?,?)";
-        qr.update(sql, student.getName(),student.getId(),student.getEntry_time(),student.getLeave_time());
+
+
+        qr.update(sql, student.getName(), student.getId(), student.getEntry_time(), student.getLeave_time());
     }
 
-  
 
 }

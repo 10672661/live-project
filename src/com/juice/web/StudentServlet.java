@@ -51,11 +51,36 @@ public class StudentServlet extends BaseServlet {
         try {
             BeanUtils.populate(student, map);
             
-            System.out.println(request.getParameter("name"));
             System.out.println(student);
             // 调用服务层
             
             studentService.addStudent(student);
+            // 跳转列表 取最新数据
+            return "StudentServlet?action=getListStudent";
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }    
+    
+    public String updateStudent(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+         System.out.println("updateStudent");
+        // 1.获取所有参数   
+        StudentService studentService = new StudentService();
+        request.setCharacterEncoding("utf-8");
+        Map<String, String[]> map = request.getParameterMap();
+        // System.out.println(map);
+        Student student = new Student();
+        BeanUtils beanUtils = new BeanUtils();
+        try {
+            BeanUtils.populate(student, map);
+            
+            System.out.println(student);
+            // 调用服务层
+            
+            studentService.updateStudent(student);
             // 跳转列表 取最新数据
             return "StudentServlet?action=getListStudent";
         } catch (Exception e) {

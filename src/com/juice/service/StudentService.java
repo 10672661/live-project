@@ -23,6 +23,11 @@ public class StudentService {
         studentDao.addStudent(student);
         
     }
+    public void updateStudent(Student student) throws SQLException {
+        student.setLeave_time(new Date());
+        studentDao.updateStudent(student);
+    }
+    
 
 
 }

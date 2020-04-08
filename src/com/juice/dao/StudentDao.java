@@ -26,5 +26,10 @@ public class StudentDao {
         qr.update(sql, student.getName(), student.getId(), student.getEntry_time(), student.getLeave_time());
     }
 
+    // 编辑
+    public void updateStudent(Student student) throws SQLException {
+        String sql = "update student set leave_time=? where id = ?";
+        qr.update(sql, student.getLeave_time(),student.getId());
+    }
 
 }

@@ -19,6 +19,7 @@
         .text{
             text-align: right;
             width: 66%;
+            height: 50%;
         }
         h2{
             margin-bottom: 20px;
@@ -37,6 +38,26 @@
             padding-left: 16%;
             width: 20%;
         }
+        .a{
+            border: 1px dodgerblue;
+            background-color: dodgerblue;
+            color: #ffffff;
+            height: 25px;
+            width: 50px;
+        }
+        .sort{
+            width: 45%;
+            height: 25px;
+            font-family: 黑体;
+            text-indent: 8px;
+            font-size: 15px;
+        }
+        .pic{
+            padding-top: 20px;
+            width: 300px;
+            height: 300px;
+            opacity: 0.6;
+        }
     </style>
 </head>
 <body>
@@ -48,9 +69,9 @@
                 <p>
                 <div class="text">
                     <span>真实姓名：</span>
-                    <input type="text" required pattern="^[\u4e00-\u9fa5]{0,}$" placeholder="必须填写，只能输入汉字"><br><br>
+                    <input type="text" required pattern="^[\u4e00-\u9fa5]{0,}$" placeholder="必须填写，只能输入汉字" class="sort"><br><br>
                     <span>学号：</span>
-                    <input type="text" required pattern="^([0-9]*$" maxlength="9" placeholder="必须填写，九位学号"><br><br>
+                    <input type="text" required pattern="^([0-9]*$" maxlength="9" placeholder="必须填写，九位学号" class="sort"  ><br><br>
                 </div>
                 </p>
                 <div class="btn">
@@ -58,6 +79,7 @@
                     <input class="a" type="submit" value="重置">
                     <input class="a" type="submit" value="离校">
                 </div>
+                <img src="https://images.cnblogs.com/cnblogs_com/1148059038tean/1664445/o_200308113025friends.jpg" alt="" class="pic">
             </form>
         </div>
         <div id="table">

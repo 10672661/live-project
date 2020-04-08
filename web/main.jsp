@@ -5,8 +5,6 @@
     String ctx = request.getContextPath();
     pageContext.setAttribute("ctx", ctx);
 %>
-
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -20,15 +18,24 @@
         #form {
             /* padding-top: 2%; */
             background: linear-gradient(to right, #A4F4DC, #B9EBF3);
-            height: 610px;
+            height: 960px;
             width: 35%;
             float: left;
             text-align: center;
         }
 
         .text {
+            padding-left: 125px;
             text-align: right;
-            width: 70%;
+            width: 66%;
+        }
+
+        .sort {
+            width: 200px;
+            height: 25px;
+            font-family: 黑体;
+            text-indent: 8px;
+            font-size: 15px;
         }
 
         h2 {
@@ -39,7 +46,7 @@
             background: linear-gradient(to right, #B9EBF3, lightskyblue);
             /* padding-top: 2%; */
             /* border:1px solid; */
-            height: 610px;
+            height: 960px;
             width: 64%;
             float: right;
         }
@@ -47,61 +54,71 @@
         #table1 {
             text-align: center;
             padding-top: 1%;
-            padding-left: 16%;
-            width: 20%;
+            padding-left: 5%;
+        }
+
+        .a {
+            border: 1px dodgerblue;
+            background-color: dodgerblue;
+            color: #ffffff;
+            height: 25px;
+            width: 50px;
+        }
+
+        .btn {
+            padding-top: 20px;
+        }
+
+        .pic {
+            padding-top: 20px;
+            width: 300px;
+            height: 300px;
+            opacity: 0.6;
         }
     </style>
+
 </head>
 <body>
 <div id="container">
     <div id="bg">
         <div id="form">
-            <form action=" ${ctx }/StudentServlet?action=addStudent" method="post">
-                <h2>进出校园登记</h2>
-
-                <p>
+            <h2>进出校园登记</h2>
+            <form action=" ${ctx }/StudentServlet?action=addStudent" method="post" name="stuform" id="stuform">
                 <div class="text">
-                    <span>真实姓名：</span>
-                    <input type="text" required pattern="^[\u4e00-\u9fa5]{0,}$" placeholder="必须填写，只能输入汉字"
-                           name="name"><br><br>
-                    <span>学号：</span>
-                    <input type="text" required pattern="^([0-9]*$" maxlength="9" placeholder="必须填写，九位学号" name="id"><br><br>
+                    <table>
+                        <tr>
+                            <td>真实姓名:</td>
+                            <td><input name="name" type="text" required pattern="^[\u4e00-\u9fa5]{0,}$"
+                                       placeholder="必须填写，只能输入汉字" class="sort"></td>
+                        </tr>
+                        <tr>
+                            <td>学号:</td>
+                            <td><input name="id" type="text" size="20" required pattern="^([0-9]*$" maxlength="9"
+                                       placeholder="必须填写，九位学号" class="sort"></td>
+                        </tr>
+                    </table>
                 </div>
-                </p>
-
                 <div class="btn">
-                    <input class="a" type="submit" value="提交">
-                    <input class="a" type="submit" value="重置">
+                    <td><input type="submit" value="入校" class="a">
+                        <input type="button" value="离校" id="leave" class="a">
+                        <input type="reset" value="重置" class="a">
+                    </td>
                 </div>
+
+
             </form>
         </div>
         <div id="table">
             <div id="table1">
-                <table border="1" align="center" width="850px">
+                <table border="1" align="center" width="750px">
                     <tr>
                         <th>姓名</th>
                         <th>学号</th>
                         <th>进入时间</th>
                         <th>离校时间</th>
                     </tr>
-
-
-                    <tr>
-                        <th>卢本伟</th>
-                        <th>123</th>
-                        <th>2000.1.2/19:20</th>
-                        <th>NULL</th>
-                    </tr>
-                    <tr>
-                        <th>刘某</th>
-                        <th>456</th>
-                        <th>2000.1.5/5:20</th>
-                        <th>2002.1.2/19:20</th>
-                    </tr>
-
                     <c:forEach items="${allStudents}" var="student" varStatus="status">
-                        <tr class="list_goods_ul">
-                            <!-- status是一个对象for循环状态 index就是取当前for循环角标 -->
+                        <tr class="list">
 
                             <th>${student.name }</th>
                             <th>${student.id }</th>
@@ -110,11 +127,23 @@
 
                         </tr>
                     </c:forEach>
-
                 </table>
             </div>
         </div>
     </div>
 </div>
+<script src="${ctx }/js/jquery.min.js"></script>
+
+<script>
+    
+    $(function () {
+        $("#leave").click(function () {
+
+            var newUrl = '${ctx}/StudentServlet?action=updateStudent';    //设置新提交地址
+            $("#stuform").attr('action', newUrl);    //通过jquery为action属性赋值
+            $("#stuform").submit();    //提交ID为myform的表单
+        })
+    })
+</script>
 </body>
 </html>

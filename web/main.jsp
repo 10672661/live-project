@@ -10,6 +10,7 @@
     <meta charset="UTF-8">
     <title>出入校园登记</title>
     <style type="text/css">
+        /*magnum*/
         * {
             margin: 0px;
             padding: 0px;
